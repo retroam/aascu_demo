@@ -15,7 +15,7 @@ from urllib.request import urlopen
 
 import foundations
 
-WORKBENCH = Path(__file__).resolve().parent / ".data/workbench/pdp.sqlite"
+WORKBENCH = Path(__file__).resolve().parents[1] / ".data/workbench/pdp.sqlite"
 CONDITION = threading.Condition()
 SYNC = threading.Lock()
 _readers = 0

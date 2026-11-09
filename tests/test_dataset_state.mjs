@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {initializeDataset, datasetStorageKey, datasetChanged} from "./dataset-state.js";
+import {initializeDataset, datasetStorageKey, datasetChanged} from "../web/dataset-state.js";
 
 test("browser data is scoped by dataset and other-tab replacement is detected", async () => {
   const original = globalThis.fetch;

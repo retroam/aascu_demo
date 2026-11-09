@@ -1,4 +1,4 @@
-"""Meaningful modeling checks; run ../.venv/bin/python -m unittest test_modeling."""
+"""Meaningful modeling checks; run with npm test from the project root."""
 
 import json
 import math

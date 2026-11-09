@@ -17,7 +17,7 @@ def load_chat_env(path=None, environ=None):
     Unrelated credentials in the file are deliberately not loaded.
     """
     target = os.environ if environ is None else environ
-    path = Path(path) if path is not None else Path(__file__).with_name(".env")
+    path = Path(path) if path is not None else Path(__file__).resolve().parents[1] / ".env"
     if not path.is_file():
         return
     pending = {}

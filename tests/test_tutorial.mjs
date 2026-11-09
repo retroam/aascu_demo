@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { tutorialStepForRoute as resolve } from './tutorial_state.js';
+import { tutorialStepForRoute as resolve } from '../web/tutorial_state.js';
 const steps = [{route:'evidence'}, {route:'evidence'}, {route:'students'}, {route:'trends',routes:['gaps','models']}, {route:'sources'}, {route:'evidence'}, {route:'reports'}];
 test('manual navigation follows the relevant tour step', () => {
   assert.equal(resolve(steps,0,'students'),2);

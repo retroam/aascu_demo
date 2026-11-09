@@ -18,7 +18,7 @@ from scipy.special import expit
 from scipy.stats import rankdata
 
 
-RAW = Path(__file__).resolve().parents[1] / "pdp-datathon-starter/data/raw/pdp_cohort_data.csv"
+RAW = Path(__file__).resolve().parents[2] / "pdp-datathon-starter/data/raw/pdp_cohort_data.csv"
 SYNTHETIC_NOTE = "These results describe mock data, not real students or institutions."
 TARGET = "Retention"
 PREDICTOR_COLUMNS = (

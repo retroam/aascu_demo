@@ -12,9 +12,9 @@ import sys
 import pandas as pd
 import yaml
 
-STARTER = Path(__file__).resolve().parents[1] / "pdp-datathon-starter"
+STARTER = Path(__file__).resolve().parents[2] / "pdp-datathon-starter"
 MODEL = STARTER / "normalized-data-model"
-DATABASE = Path(os.environ.get("PDP_DEMO_DATABASE", str(Path(__file__).resolve().parent / ".data/pdp.sqlite"))).resolve()
+DATABASE = Path(os.environ.get("PDP_DEMO_DATABASE", str(Path(__file__).resolve().parents[1] / ".data/pdp.sqlite"))).resolve()
 sys.path.insert(0, str(STARTER))
 sys.path.insert(0, str(MODEL))
 sys.path.insert(0, str(STARTER / "mcp"))
@@ -33,7 +33,7 @@ MIN_CELL = 20
 def connection():
     """Open the demo's generated database without permission to change it."""
     if not DATABASE.exists():
-        raise RuntimeError("Run ../.venv/bin/python prepare_data.py in demo first.")
+        raise RuntimeError("Run npm run data:prepare in demo first.")
     db = sqlite3.connect(f"{DATABASE.as_uri()}?mode=ro", uri=True)
     try:
         yield db

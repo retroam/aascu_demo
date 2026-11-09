@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 from urllib.parse import urlsplit
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 STARTER = ROOT.parent / "pdp-datathon-starter"
 STORAGE = ROOT / ".data/workbench"
 STORAGE.mkdir(parents=True, exist_ok=True)

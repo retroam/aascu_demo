@@ -1,4 +1,4 @@
-"""Dependency-light local demo server. Run with ../.venv/bin/python server.py."""
+"""Dependency-light local demo server. Run with npm run dev from the project root."""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,7 @@ import dataset
 import run_workbench
 import workbench_host
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1] / "web"
 STATIC_SUFFIXES = {".html", ".js", ".css", ".svg", ".ico", ".png", ".jpg", ".jpeg", ".webp", ".woff", ".woff2"}
 MAX_BODY = 16_384
 

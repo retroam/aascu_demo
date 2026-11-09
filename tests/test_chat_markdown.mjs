@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { renderChatMarkdown as render, renderChatTables, renderChatCharts } from './chat_charts.js';
+import { renderChatMarkdown as render, renderChatTables, renderChatCharts } from '../web/chat_charts.js';
 
 test('renders common PDP answer formatting', () => {
   const html = render('# Schema\n\n**Cohort** and *course* fields use `student_id`.\n\n- Retention\n- Persistence\n\n1. Select a cohort\n2. Compare outcomes\n\n> Synthetic records');

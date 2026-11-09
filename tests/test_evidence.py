@@ -1,6 +1,6 @@
 """Independent CSV checks and adversarial assistant scope tests.
 
-Run: ../.venv/bin/python -m unittest test_evidence test_modeling -v
+Run with npm test from the project root to use a disposable baseline.
 """
 import csv
 import io

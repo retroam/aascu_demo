@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { createStudentWorkspace, readFollowups } from "./students.js";
-import { initializeDataset } from "./dataset-state.js";
+import { createStudentWorkspace, readFollowups } from "../web/students.js";
+import { initializeDataset } from "../web/dataset-state.js";
 
 const originalFetch = globalThis.fetch;
 globalThis.fetch = async () => ({ok:true, json:async()=>({dataset:{origin:"starter",run_id:"fixture"}})});

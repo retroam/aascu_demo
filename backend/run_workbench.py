@@ -10,7 +10,7 @@ import subprocess
 import time
 from urllib.request import urlopen
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 PLAYGROUND = ROOT.parent / "pdp-datathon-starter/playground"
 CLIENT = PLAYGROUND / "client_application"
 BUILD = ".next/demo"
@@ -23,8 +23,8 @@ def commands():
     next_cli = CLIENT / "node_modules/next/dist/bin/next"
     node = shutil.which("node")
     if not python.exists() or not next_cli.exists() or not node:
-        raise SystemExit("Install Playground dependencies first; see demo/README.md: Workbench.")
-    return [str(python), str(ROOT / "workbench_api.py")], [node, str(next_cli)]
+        raise SystemExit("Install Playground dependencies first; see docs/technical-guide.md: Workbench.")
+    return [str(python), str(ROOT / "backend/workbench_api.py")], [node, str(next_cli)]
 
 
 def client_environment():

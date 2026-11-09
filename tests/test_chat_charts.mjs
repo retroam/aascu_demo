@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { renderChatChart, renderChatCharts, validChatChart, renderChatTable, renderChatQuery } from "./chat_charts.js";
-import { buildChatChartReport, renderChatEvidence } from "./chat_exports.js";
+import { renderChatChart, renderChatCharts, validChatChart, renderChatTable, renderChatQuery } from "../web/chat_charts.js";
+import { buildChatChartReport, renderChatEvidence } from "../web/chat_exports.js";
 
 const point = (value, status = "ok") => ({ label: "Cohort", value, numerator: 12.375, denominator: 25, status });
 const chart = (points, extra = {}) => ({ type: "line", title: "Completion", unit: "percent", caption: "Eligible enrollments", points, ...extra });

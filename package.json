@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "data:prepare": "../.venv/bin/python prepare_data.py",
-    "dev": "../.venv/bin/python server.py",
-    "start": "../.venv/bin/python server.py",
-    "workbench:build": "../.venv/bin/python run_workbench.py build",
-    "test": "../.venv/bin/python run_tests.py",
-    "eval:llm": "../.venv/bin/python evaluate_llm.py"
+    "data:prepare": "../.venv/bin/python backend/prepare_data.py",
+    "dev": "../.venv/bin/python backend/server.py",
+    "start": "../.venv/bin/python backend/server.py",
+    "workbench:build": "../.venv/bin/python backend/run_workbench.py build",
+    "test": "../.venv/bin/python backend/run_tests.py",
+    "eval:llm": "../.venv/bin/python backend/evaluate_llm.py"
   }
 }

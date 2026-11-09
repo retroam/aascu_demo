@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { requestJSON, requestReport } from "./transport.js";
-import { initializeDataset } from "./dataset-state.js";
+import { requestJSON, requestReport } from "../web/transport.js";
+import { initializeDataset } from "../web/dataset-state.js";
 const respond =
   (body, type, status = 200, extra = {}) =>
   async () =>

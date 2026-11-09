@@ -19,7 +19,7 @@ from pathlib import Path
 import pandas as pd
 import foundations
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT.parent / "pdp-datathon-starter" / "data"
 SOURCE = "Normalized PDP model · cohort_membership + student · shared measures"
 SYNTHETIC = "These results describe mock data, not real students or institutions."
