@@ -1,0 +1,62 @@
+# The starter's config/pipeline.yaml plus the four population enrichments, with a database and
+# table files of its own, so loading it doesn't replace the default output/pdp.sqlite other squads use.
+# To use it: copy it and the four *_mapping.yaml files into normalized-data-model/config/, add the
+# rules in destination_schema_rules.yaml to config/destination_schema.yaml, and run from
+# normalized-data-model/:
+#   python3 -m src.loader.load --config config/pipeline_populations.yaml
+# Relative paths are from normalized-data-model/. The population files' paths assume this folder
+# sits at demo/population_enrichments/, next to pdp-datathon-starter/.
+
+mode: full_refresh
+backend: sqlite
+
+sqlite:
+  path: output/pdp_populations.sqlite
+
+tables:
+  path: output/tables_populations
+
+postgres:
+  url_env: PDP_POSTGRES_URL
+
+on_error_rows: skip
+batch_size: 5000
+logs_dir: logs
+staging_dir: data/staging
+fixes: config/data_fixes.yaml
+
+# Sources go cohort, course, then enrichments.
+sources:
+  - kind: cohort
+    path: ../data/raw/pdp_cohort_data.csv
+    config: cohort_mapping.yaml
+    provider: Achieving the Dream
+    order_by: cohort_membership.cohort
+  - kind: course
+    path: ../data/raw/pdp_course_data.csv
+    config: course_mapping.yaml
+    provider: Achieving the Dream
+  - kind: enrichment
+    path: data/input/enrichment/on_campus_housing.csv
+    config: on_campus_housing_mapping.yaml
+    provider: 'synthetic: on-campus housing generator'
+  - kind: enrichment
+    path: data/input/enrichment/institution_events.csv
+    config: institution_events_mapping.yaml
+    provider: 'public: institution events'
+  - kind: enrichment
+    path: ../../demo/population_enrichments/data/student_athlete.csv
+    config: student_athlete_mapping.yaml
+    provider: 'synthetic: student athlete generator'
+  - kind: enrichment
+    path: ../../demo/population_enrichments/data/registration_holds.csv
+    config: registration_holds_mapping.yaml
+    provider: 'synthetic: registration holds generator'
+  - kind: enrichment
+    path: ../../demo/population_enrichments/data/lms_activity_band.csv
+    config: lms_activity_band_mapping.yaml
+    provider: 'synthetic: LMS activity band generator'
+  - kind: enrichment
+    path: ../../demo/population_enrichments/data/instruction_site.csv
+    config: instruction_site_mapping.yaml
+    provider: 'synthetic: instruction site generator'

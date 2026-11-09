@@ -1,0 +1,9 @@
+# Rules to add to config/destination_schema.yaml in pdp-datathon-starter/normalized-data-model,
+# under student_attribute.attribute_value.rules, next to the uses_on_campus_housing rule.
+# One enum per attribute key the population enrichments write. Not a config file of its own:
+# the loader reads only destination_schema.yaml.
+- {enum: ['true', 'false'], when: {column: attribute_key, equals: is_student_athlete}, severity: error}
+- {enum: [basketball, football, soccer, track_and_field, volleyball, wrestling], when: {column: attribute_key, equals: athlete_sport}, severity: error}
+- {enum: [financial, advising, immunization, disciplinary, sap], when: {column: attribute_key, equals: registration_hold}, severity: error}
+- {enum: [low, medium, high], when: {column: attribute_key, equals: lms_activity_band}, severity: error}
+- {enum: [on_campus, online, cdoc_facility], when: {column: attribute_key, equals: instruction_site}, severity: error}

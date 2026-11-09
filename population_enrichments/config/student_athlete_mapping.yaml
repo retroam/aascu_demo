@@ -1,0 +1,29 @@
+# How the student-athlete enrichment file writes its values, and where each column goes.
+# Written by population_enrichments/student_athlete.py. Long format: each row is one attribute,
+# is_student_athlete or athlete_sport, so its key comes from the file, not a fixed value.
+#
+# Each entry: source (or value, a fixed value for every row), destination_table,
+# destination_column and on_conflict (append, replace or keep: what the loader does when the
+# destination row already holds a value). A source column with no destination is marked
+# `dropped:` with the reason. Valid stored values are checked by the rules in
+# destination_schema_rules.yaml, which go in config/destination_schema.yaml.
+
+- source: Student_GUID
+  destination_table: student_attribute
+  destination_column: student_id
+  on_conflict: replace
+
+- source: Attribute_Key
+  destination_table: student_attribute
+  destination_column: attribute_key
+  on_conflict: replace
+
+- source: Attribute_Value
+  destination_table: student_attribute
+  destination_column: attribute_value
+  on_conflict: replace
+
+- source: Source
+  destination_table: student_attribute
+  destination_column: source
+  on_conflict: replace

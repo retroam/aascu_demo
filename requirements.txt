@@ -1,0 +1,9 @@
+# Demo analytics and historical modeling; versions verified in this workspace.
+numpy==2.5.4
+pandas==3.0.6
+scipy==1.18.1
+# Shared normalized model; same pins as the starter foundations.
+pyyaml==6.0.2
+pyarrow==25.0.1
+# Parse and validate generated SQLite queries before independent model review.
+sqlglot==30.29.0

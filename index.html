@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafafa" />
+    <meta
+      name="description"
+      content="Student outcome metrics, retention models, cohort comparisons, and reports using synthetic PDP data."
+    />
+    <title>AASCU | Institutional analytics</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/secondary.css" />
+    <link rel="stylesheet" href="/playground.css" />
+    <link rel="stylesheet" href="/review.css" />
+    <link rel="stylesheet" href="/students.css" />
+    <link rel="stylesheet" href="/workbench.css" />
+    <script src="/app.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="app">
+      <div class="initial-loader">
+        <span class="loading-mark"></span>
+        <h1>AASCU</h1>
+        <p>Loading data…</p>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="detail-dialog" aria-labelledby="dialog-title"></dialog>
+    <script>
+      if (location.protocol === "file:") {
+        document.querySelector(".initial-loader").innerHTML =
+          '<h1>Start the app</h1><p>Run <code>npm run dev</code> in the <code>demo</code> folder.</p><p>Then open <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>.</p><p>Keep the server running to use chat and exports.</p>';
+      }
+    </script>
+  </body>
+</html>

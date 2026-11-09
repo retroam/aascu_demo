@@ -1,0 +1,14 @@
+{
+  "name": "aascu-institutional-intelligence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "data:prepare": "../.venv/bin/python prepare_data.py",
+    "dev": "../.venv/bin/python server.py",
+    "start": "../.venv/bin/python server.py",
+    "workbench:build": "../.venv/bin/python run_workbench.py build",
+    "test": "../.venv/bin/python run_tests.py",
+    "eval:llm": "../.venv/bin/python evaluate_llm.py"
+  }
+}

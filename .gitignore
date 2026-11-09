@@ -1,0 +1,9 @@
+.data/
+__pycache__/
+.env
+.env.*
+!.env.example
+artifacts/
+population_enrichments/data/
+.DS_Store
+.ipynb_checkpoints/
